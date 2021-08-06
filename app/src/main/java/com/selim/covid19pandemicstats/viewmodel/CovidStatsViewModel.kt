@@ -8,7 +8,6 @@ import com.selim.covid19pandemicstats.model.AllCountries
 import com.selim.covid19pandemicstats.model.Countries
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 
 class CovidStatsViewModel:ViewModel() {
@@ -35,7 +34,6 @@ class CovidStatsViewModel:ViewModel() {
     {
        ApiClient.getApiService().getCountry(country).enqueue(object :retrofit2.Callback<Countries>{
            override fun onResponse(call: Call<Countries>, response: Response<Countries>) {
-               Log.d("Response","Oldu be")
                response.body()?.let {
                    _country.value=it
                }
